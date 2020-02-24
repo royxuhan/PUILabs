@@ -9,20 +9,30 @@ function Cat(name, age) {
 function Dog(name, age) {
   this.name = name;
   this.age = age;
-  this.image = "dog.jpg"
+  this.image = "dog.jpg";
   this.type = "Dog";
 }
 
 function Bird(name, age) {
   this.name = name;
   this.age = age;
-  this.image = "bird.jpg"
+  this.image = "bird.jpg";
   this.type = "Bird";
 }
 
 /*** Global Variables ***/
 var animals = [new Cat(), new Dog(), new Bird()];
-var names = ["Toothless", "Marshmallow", "Momo", "Coco", "Ollie", "Oscar", "Bella", "Ruby", "Apples"];
+var names = [
+  "Toothless",
+  "Marshmallow",
+  "Momo",
+  "Coco",
+  "Ollie",
+  "Oscar",
+  "Bella",
+  "Ruby",
+  "Apples"
+];
 
 /*** Functions ***/
 // get a random index for an array from 0 to maxIndex (not inclusive)
@@ -35,16 +45,11 @@ function generateRandomAnimal() {
   var randomIdx = getRandomIndex(animals.length);
   var randomAnimal = animals[randomIdx];
 
-  if (randomAnimal instanceof Cat) 
-  {
+  if (randomAnimal instanceof Cat) {
     return new Cat(generateRandomName(), generateRandomAge());
-  } 
-  else if (randomAnimal instanceof Dog) 
-  {
+  } else if (randomAnimal instanceof Dog) {
     return new Dog(generateRandomName(), generateRandomAge());
-  } 
-  else if (randomAnimal instanceof Bird) 
-  {
+  } else if (randomAnimal instanceof Bird) {
     return new Bird(generateRandomName(), generateRandomAge());
   }
 }
@@ -63,12 +68,11 @@ function generateRandomAge() {
 
 /*** Document Load ****/
 function onLoad() {
-
   // generate a random animal when the document opens
   var animal = generateRandomAnimal();
-  console.log(animal)
+  console.log(animal);
   // update the page based on the animal properties
-  document.getElementById("animal-properties").textContent = animal.name + "  " + animal.age + " years old";
-  document.getElementById("animal-img").setAttribute("src", animal.image)
-
-};
+  document.getElementById("animal-properties").textContent =
+    animal.name + "  " + animal.age + "years old";
+  document.getElementById("animal-img").setAttribute("src", animal.image);
+}
